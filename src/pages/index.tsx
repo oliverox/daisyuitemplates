@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#390050] to-[#15162c]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 -mt-20">
-          <h1 className="text-5xl font-extrabold sm:text-[5rem] leading-[62px]">
+          <h1 className="font-extrabold text-[5rem] leading-[62px]">
             <span className="text-[#d9effd]">DaisyUI</span><br/><span className="text-[hsl(280,100%,70%)] text-[59px]">Templates</span>
           </h1>
         </div>
