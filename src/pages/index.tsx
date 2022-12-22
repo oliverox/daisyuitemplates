@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Header from "../components/Header/Header";
-import Footer from '../components/Footer/Footer';
+import Footer from "../components/Footer/Footer";
 import Logo from "../components/Logo/Logo";
 
 const Home: NextPage = () => {
@@ -20,8 +20,7 @@ const Home: NextPage = () => {
             </h1>
           </div>
           <span className="text-center text-sm text-base-content">
-            Modern templates built with
-            <br className="md:hidden" />
+            Modern templates built with <br className="md:hidden" />
             DaisyUI, TailwindCSS & NextJS
           </span>
         </div>
