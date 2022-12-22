@@ -5,7 +5,7 @@ import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100 max-w-7xl mx-auto max-w">
+    <div className="navbar max-w-7xl mx-auto max-w">
       <div className="flex-1">
         <Logo size="sm" className="fill-secondary" />
       </div>
