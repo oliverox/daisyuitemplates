@@ -2,9 +2,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../Logo/Logo";
-import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const Header = () => {
   const { data: session } = useSession();
@@ -16,29 +17,42 @@ const Header = () => {
       <div className="mr-2">
         <ThemeSwitcher />
       </div>
-      <div className="flex-none border-l border-base-300 px-2">
-        {session?.user && (
-          <div className="border-2 border-base-content rounded-full">
-          <Image
-            className="h-6 w-6 w- rounded-full"
-            src={session.user.image || ""}
-            alt=""
-            width={24}
-            height={24}
-          />
-          </div>
-        )}
-
-        {!session?.user && (
-          <Link
-            className="btn-ghost btn"
-            href="#"
-            onClick={() => signIn("google")}
-          >
-            Sign in
-          </Link>
-        )}
-      </div>
+      {session?.user && (
+        <ul className="menu menu-horizontal px-1">
+          <li tabIndex={0}>
+            <div className="">
+              <Image
+                className="h-6 w-6 rounded-full outline-2 outline-offset-2 outline-white"
+                src={session.user.image || ""}
+                alt=""
+                width={24}
+                height={24}
+              />
+              <ChevronDownIcon className="h-4 w-4 stroke-primary stroke-2" />
+            </div>
+            <ul className="">
+              <li className="rounded-none">
+                <Link
+                  href="#"
+                  onClick={() => signOut()}
+                  className="btn btn-ghost"
+                >
+                  Sign out
+                </Link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      )}
+      {!session?.user && (
+        <Link
+          className="btn-ghost btn"
+          href="#"
+          onClick={() => signIn("google")}
+        >
+          Sign in
+        </Link>
+      )}
     </div>
   );
 };
