@@ -18,40 +18,34 @@ const Header = () => {
         <ThemeSwitcher />
       </div>
       {session?.user && (
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal">
           <li tabIndex={0}>
-            <div className="">
+            <button className="btn-ghost btn gap-2">
               <Image
                 className="h-6 w-6 rounded-full outline-2 outline-offset-2 outline-white"
                 src={session.user.image || ""}
-                alt=""
+                alt="User is signed in"
                 width={24}
                 height={24}
               />
+              <div className="w-1" />
               <ChevronDownIcon className="h-4 w-4 stroke-primary stroke-2" />
-            </div>
-            <ul className="">
+            </button>
+            <ul className="w-full">
+              <span className="text-center text-sm text-base-content py-1">Hi {session?.user.name?.split(" ")[0]}!</span>
               <li className="rounded-none">
-                <Link
-                  href="#"
-                  onClick={() => signOut()}
-                  className="btn btn-ghost"
-                >
+                <button onClick={() => signOut()} className="btn-ghost btn">
                   Sign out
-                </Link>
+                </button>
               </li>
             </ul>
           </li>
         </ul>
       )}
       {!session?.user && (
-        <Link
-          className="btn-ghost btn"
-          href="#"
-          onClick={() => signIn("google")}
-        >
+        <button className="btn-ghost btn" onClick={() => signIn("google")}>
           Sign in
-        </Link>
+        </button>
       )}
     </div>
   );
