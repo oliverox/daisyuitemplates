@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import clsx from "clsx";
 
 type LogoProps = {
@@ -7,7 +7,7 @@ type LogoProps = {
   className?: string;
 };
 
-const Logo: FunctionComponent<LogoProps> = ({
+const Logo: React.FC<LogoProps> = ({
   spin = true,
   size = "md",
   className = "",

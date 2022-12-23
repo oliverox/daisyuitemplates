@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 
@@ -7,7 +7,7 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
