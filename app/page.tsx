@@ -12,8 +12,8 @@ export default function Home() {
   };
   return (
     <div className="min-h-screen">
-      <main className="flex flex-col items-center gap-10 p-24">
-        <div className="text-center">
+      <main className="flex flex-col items-center gap-10 p-10 sm:p-24">
+        <div className="text-center dark:text-gray-200">
           <span className="text-5xl leading-[1.2] font-semibold">
             High Quality Templates
             <br />
@@ -22,19 +22,19 @@ export default function Home() {
           </span>
         </div>
         <div>
-          <p className="text-gray-500 text-lg text-center max-w-md">
-            Looking for <span className="text-secondary">professional</span>,{' '}
-            <span className="text-secondary">ready-made templates</span> powered
-            by <span className="text-secondary">DaisyUI</span>? Try DaisyUI
+          <p className="text-gray-500 dark:text-gray-200 text-lg text-center max-w-md">
+            Looking for <span className="text-secondary dark:text-accent">professional</span>,{' '}
+            <span className="text-secondary dark:text-accent">ready-made templates</span> powered
+            by <span className="text-secondary dark:text-accent">DaisyUI</span>? Try DaisyUI
             Templates now.
           </p>
         </div>
         <div>
           <button
-            className="btn btn-primary btn-lg leading-[1.2]"
+            className="btn btn-secondary dark:btn-accent btn-lg leading-[1.2]"
             onClick={handleCtaClick}
           >
-            Try DaisyUI Templates ➔
+            Try Now
           </button>
         </div>
         <dialog id="cta_modal" className="modal">
