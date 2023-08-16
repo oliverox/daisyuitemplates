@@ -29,7 +29,7 @@ export default function Home() {
       </div>
       <div>
         <button
-          className="btn btn-accent btn-lg leading-[1.2]"
+          className="btn btn-primary btn-lg leading-[1.2]"
           onClick={handleCtaClick}
         >
           Try DaisyUI Templates ➔
