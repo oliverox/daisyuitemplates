@@ -35,12 +35,13 @@ export default function Home() {
           </p>
         </div>
         <div>
-          <button
-            className="btn btn-secondary btn-lg leading-[1.2]"
+          <Link
+            href="/products"
+            className="btn btn-secondary leading-[1.2]"
             onClick={handleCtaClick}
           >
-            Try Now
-          </button>
+            Show Products
+          </Link>
         </div>
         <dialog id="cta_modal" className="modal">
           <form method="dialog" className="modal-box">
