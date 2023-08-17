@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 declare global {
   interface Window {
     cta_modal: { showModal: () => {} };
@@ -23,22 +25,18 @@ export default function Home() {
         </div>
         <div>
           <p className="text-lg text-center max-w-md">
-            Looking for{' '}
-            <span className="text-accent">
-              professional
-            </span>
-            ,{' '}
-            <span className="text-accent">
-              ready-made templates
-            </span>{' '}
-            powered by{' '}
-            <span className="text-accent">DaisyUI</span>?
-            Try DaisyUI Templates now.
+            Looking for <span className="text-secondary">professional</span>,{' '}
+            <span className="text-secondary">ready-made templates</span> powered
+            by{' '}
+            <Link href="https://daisyui.com" target="_blank">
+              <span className="text-secondary">DaisyUI</span>
+            </Link>
+            ? Try DaisyUI Templates now.
           </p>
         </div>
         <div>
           <button
-            className="btn btn-accent btn-lg leading-[1.2]"
+            className="btn btn-secondary btn-lg leading-[1.2]"
             onClick={handleCtaClick}
           >
             Try Now

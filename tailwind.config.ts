@@ -33,8 +33,8 @@ const config: Config = {
         },
         dark: {
           ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
-          "--gradient1": "#1e3a8a",
-          "--gradient2": "#2b3440"
+          "--gradient1": "#083344",
+          "--gradient2": "#171717"
         }
       }
     ],
