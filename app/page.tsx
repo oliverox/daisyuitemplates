@@ -23,10 +23,17 @@ export default function Home() {
         </div>
         <div>
           <p className="text-gray-500 dark:text-gray-200 text-lg text-center max-w-md">
-            Looking for <span className="text-secondary dark:text-accent">professional</span>,{' '}
-            <span className="text-secondary dark:text-accent">ready-made templates</span> powered
-            by <span className="text-secondary dark:text-accent">DaisyUI</span>? Try DaisyUI
-            Templates now.
+            Looking for{' '}
+            <span className="text-secondary dark:text-accent">
+              professional
+            </span>
+            ,{' '}
+            <span className="text-secondary dark:text-accent">
+              ready-made templates
+            </span>{' '}
+            powered by{' '}
+            <span className="text-secondary dark:text-accent">DaisyUI</span>?
+            Try DaisyUI Templates now.
           </p>
         </div>
         <div>
@@ -55,7 +62,7 @@ export default function Home() {
       >
         <ul
           className="flex items-center justify-center md:justify-start [&_li]:mx-3 
-                      [&_img]:max-w-none animate-infinite-scroll"
+                      [&_img]:max-w-none animate-infinite-scroll py-4"
         >
           <li>
             <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
@@ -113,26 +120,6 @@ export default function Home() {
           </li>
         </ul>
       </div>
-      {/* <div className="w-full overflow-hidden h-[350px] overflow-x-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-        <div className="animate-infinite-scroll flex flex-row gap-3">
-          <div className="flex flex-row flex-nowrap gap-3">
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-          </div>
-          <div className="flex flex-row flex-nowrap gap-3">
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-            <div className="w-[300px] h-[300px] border-0 drop-shadow-lg rounded-md bg-white border-spacing-1 border-gray-300"></div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

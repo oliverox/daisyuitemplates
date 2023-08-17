@@ -1,4 +1,5 @@
 import './globals.css';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
 
@@ -18,7 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${figtree.variable} bg-gradient-to-b from-white dark:from-blue-900 to-[#00C9FF] dark:to-neutral`}>
+    <html
+      lang="en"
+      className={`${figtree.variable} bg-gradient-to-b from-white dark:from-blue-900 to-[#00C9FF] dark:to-neutral`}
+    >
       <body>
         <div className="navbar">
           <div className="flex-1 gap-2">
@@ -29,18 +33,23 @@ export default function RootLayout({
                 </g>
               </svg>
             </div>
-            <span className="text-xl hidden sm:block font-mono dark:text-white font-bold">
+            <Link href="/" className="text-xl hidden sm:block font-mono dark:text-white font-bold">
               DaisyUI Templates
-            </span>
-            <span className="text-2xl sm:hidden font-mono dark:text-white font-bold">DT</span>
+            </Link>
+            <Link href="/" className="text-2xl sm:hidden font-mono dark:text-white font-bold">
+              DT
+            </Link>
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1 font-semibold dark:text-white">
               <li>
-                <a>Products</a>
+                <Link href="/products">Products</Link>
               </li>
               <li>
                 <a>Freebies</a>
+              </li>
+              <li>
+                <a>Account</a>
               </li>
             </ul>
           </div>
