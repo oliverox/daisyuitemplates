@@ -32,7 +32,7 @@ export default function Product(props: { params: { name: string } }) {
           </div>
           <div className="max-w-xl">
             <p className="m-2">
-              Are you ready to revolutionize your tech startup's image? Look no
+              Are you ready to revolutionize your tech startup&apos;s image? Look no
               further! The TechLaunch Pro design template is here to empower
               your brand with a cutting-edge visual identity that reflects your
               innovation, professionalism, and ambition.
@@ -40,7 +40,7 @@ export default function Product(props: { params: { name: string } }) {
             <p className="m-2">
               🚀 Elevate Your Brand: Craft an unforgettable first impression
               with sleek, modern designs that capture the essence of your tech
-              startup's unique identity. Our template offers a seamless blend of
+              startup&apos;s unique identity. Our template offers a seamless blend of
               minimalism and vibrancy, ensuring your brand stands out in a
               crowded digital landscape.
             </p>
@@ -55,37 +55,37 @@ export default function Product(props: { params: { name: string } }) {
               💡 Intuitive Customization: No design experience? No problem! Our
               user-friendly interface empowers you to effortlessly customize
               each element – fonts, colors, imagery, and more – allowing you to
-              make it truly yours. It's as simple as drag, drop, and create!
+              make it truly yours. It&apos;s as simple as drag, drop, and create!
             </p>
             <p className="m-2">
               🎯 Strategic Visual Storytelling: Every aspect of the TechLaunch
-              Pro template has been meticulously crafted to tell your startup's
+              Pro template has been meticulously crafted to tell your startup&apos;s
               story visually. Engage your audience with captivating layouts that
-              highlight your product's features, team strengths, and market
+              highlight your product&apos;s features, team strengths, and market
               differentiators.
             </p>
             <p className="m-2">
-              📈 Designed for Growth: Whether you're seeking investors,
+              📈 Designed for Growth: Whether you&apos;re seeking investors,
               customers, or partnerships, TechLaunch Pro equips you with designs
               that exude professionalism and potential. Garner trust and
-              confidence as you present your tech startup's vision for a better
-              future.{' '}
+              confidence as you present your tech startup&apos;s vision for a better
+              future.
             </p>
             <p className="m-2">
               🔒 High-Resolution Quality: Impress even the most discerning eyes
               with high-resolution graphics that maintain their sharpness across
-              all devices. Your tech startup's innovation deserves nothing less
+              all devices. Your tech startup&apos;s innovation deserves nothing less
               than top-notch quality.
             </p>
             <p className="m-2">
               🤝 Collaboration Ready: Teamwork makes the dream work. TechLaunch
               Pro facilitates seamless collaboration among your team members.
               Effortlessly share, edit, and refine your designs, ensuring
-              everyone is on the same page as you work towards your goals. Don't
-              miss the chance to ignite your tech startup's journey with an
+              everyone is on the same page as you work towards your goals. Don&apos;t
+              miss the chance to ignite your tech startup&apos;s journey with an
               unmatched design template. Choose TechLaunch Pro today and venture
               into a world where creativity meets technology, and success is
-              visually defined. Let's design the future, together.
+              visually defined. Let&apos;s design the future, together.
             </p>
           </div>
         </div>
