@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 declare global {
   interface Window {
@@ -9,12 +10,20 @@ declare global {
 }
 
 export default function Home() {
+  const { data: session, status } = useSession();
+
   const handleCtaClick = () => {
     window.cta_modal.showModal();
   };
   return (
     <div className="min-h-screen">
       <main className="flex flex-col items-center gap-10 p-10 sm:p-24">
+        {status === 'authenticated' && session.user ? (
+          <p><span className="badge badge-neutral">{session.user.email}</span></p>
+        ) : (
+          <p><span className="badge badge-neutral">Anonymous user</span></p>
+        )}
+
         <div className="text-center">
           <span className="text-5xl leading-[1.2] font-semibold">
             High Quality Templates

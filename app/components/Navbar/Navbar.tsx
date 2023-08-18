@@ -14,7 +14,7 @@ function NavbarMenu() {
         <a>Freebies</a>
       </li>
       <li>
-        <a>Account</a>
+        <Link href="/api/auth/signin">Account</Link>
       </li>
       <li>
         <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">

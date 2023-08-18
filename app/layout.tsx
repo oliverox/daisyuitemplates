@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
 import Navbar from './components/Navbar/Navbar';
+import NextAuthProvider from '@/app/context/NextAuthProvider';
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -34,9 +35,11 @@ export default function RootLayout({
       className={`${figtree.variable} bg-gradient-to-b from-[color:var(--gradient1)] to-[color:var(--gradient2)]`}
     >
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <NextAuthProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </NextAuthProvider>
       </body>
     </html>
   );
