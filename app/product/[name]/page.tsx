@@ -7,7 +7,7 @@ export default function Product(props: { params: { name: string } }) {
         <span className="text-2xl font-semibold capitalize">
           {props.params.name.split('-').join(' ')}
         </span>
-        <div className="flex flex-col md:flex-row gap-5">
+        <div className="flex flex-col lg:flex-row gap-5">
           <div className="min-w-[300px] min-h-[500px] w-full max-w-7xl h-full bg-white rounded-md drop-shadow-md">
             <div className="flex flex-row gap-8 items-center justify-between">
               <span className="btn btn-secondary btn-xl">Buy for $25</span>
@@ -30,8 +30,8 @@ export default function Product(props: { params: { name: string } }) {
               </Link>
             </div>
           </div>
-          <div className="max-w-xl">
-            <p className="m-2">
+          <div className="max-w-3xl">
+            <p className="mx-2">
               Are you ready to revolutionize your tech startup&apos;s image? Look no
               further! The TechLaunch Pro design template is here to empower
               your brand with a cutting-edge visual identity that reflects your

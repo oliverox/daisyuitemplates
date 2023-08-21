@@ -10,13 +10,19 @@ function NavbarMenu() {
   const { data: session, status } = useSession();
   return (
     <>
-      <li>
-        <Link href="/products">Products</Link>
-      </li>
+      {status === 'authenticated' && session.user ? (
+        <li>
+          <Link href="/mine">My products</Link>
+        </li>
+      ) : (
+        <li>
+          <Link href="/products">All products</Link>
+        </li>
+      )}
       <li>
         <a>Freebies</a>
       </li>
-      <hr />
+      <hr className="my-1" />
       {status === 'authenticated' && session.user ? (
         <li className="md:hidden">
           <Link href="/api/auth/signout">Sign out</Link>
@@ -84,6 +90,8 @@ export default function Navbar() {
     themeChange(false);
   }, []);
 
+  const { data: session, status } = useSession();
+
   return (
     <div className="navbar">
       <div className="flex-1 gap-2">
@@ -106,22 +114,34 @@ export default function Navbar() {
           <li>
             <details>
               <summary>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
-                  />
-                </svg>
+                {status === 'authenticated' && session.user ? (
+                  <div className="avatar placeholder">
+                    <div className="bg-neutral-focus text-neutral-content rounded-full w-6">
+                      <span className="text-xs">
+                        {session.user.name
+                          ? getInitialsFromName(session.user.name)
+                          : 'UA'}
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+                    />
+                  </svg>
+                )}
               </summary>
-              <ul className="p-2 bg-base-100 !-ml-8">
+              <ul className="p-2 bg-base-100 !-ml-14">
                 <NavbarMenu />
               </ul>
             </details>
