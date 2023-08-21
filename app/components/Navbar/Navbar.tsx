@@ -3,8 +3,11 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { themeChange } from 'theme-change';
+import { useSession } from 'next-auth/react';
+import { getInitialsFromName } from '@/app/lib/getInitialsFromName';
 
 function NavbarMenu() {
+  const { data: session, status } = useSession();
   return (
     <>
       <li>
@@ -13,8 +16,46 @@ function NavbarMenu() {
       <li>
         <a>Freebies</a>
       </li>
-      <li>
-        <Link href="/api/auth/signin">Account</Link>
+      <hr />
+      {status === 'authenticated' && session.user ? (
+        <li className="md:hidden">
+          <Link href="/api/auth/signout">Sign out</Link>
+        </li>
+      ) : (
+        <li className="md:hidden">
+          <Link href="/api/auth/signin">Sign in</Link>
+        </li>
+      )}
+
+      <li className="hidden md:block">
+        <details>
+          {status === 'authenticated' && session.user ? (
+            <summary>
+              <div className="avatar placeholder">
+                <div className="bg-neutral-focus text-neutral-content rounded-full w-6">
+                  <span className="text-xs">
+                    {session.user.name
+                      ? getInitialsFromName(session.user.name)
+                      : 'UA'}
+                  </span>
+                </div>
+              </div>
+            </summary>
+          ) : (
+            <summary>Account</summary>
+          )}
+          <ul className="p-2 bg-base-100">
+            {status === 'authenticated' && session.user ? (
+              <li>
+                <Link href="/api/auth/signout">Sign out</Link>
+              </li>
+            ) : (
+              <li>
+                <Link href="/api/auth/signin">Sign in</Link>
+              </li>
+            )}
+          </ul>
+        </details>
       </li>
       <li>
         <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
@@ -61,7 +102,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1 font-semibold md:hidden z-10">
+        <ul className="menu menu-sm menu-horizontal px-1 font-semibold md:hidden z-10">
           <li>
             <details>
               <summary>
@@ -86,7 +127,7 @@ export default function Navbar() {
             </details>
           </li>
         </ul>
-        <ul className="menu menu-horizontal px-1 font-semibold hidden md:inline-flex">
+        <ul className="menu menu-sm menu-horizontal px-1 font-semibold hidden md:inline-flex">
           <NavbarMenu />
         </ul>
       </div>
