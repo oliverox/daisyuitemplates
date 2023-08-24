@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import { authOptions } from '@/app/lib/auth';
+import { getServerSession } from 'next-auth';
 
 function Product(props: { children: ReactNode }) {
   return <div className="flex flex-col my-6">{props.children}</div>;
@@ -11,7 +13,35 @@ function TemplateImage() {
   );
 }
 
-export default function MyProducts() {
+async function getProducts() {
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.email) {
+    return { products: [] };
+  }
+
+  let data = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/db/getAllProducts`,
+    {
+      method: 'POST',
+      headers: {
+        'app-secret': process.env.NEXTAUTH_SECRET
+          ? process.env.NEXTAUTH_SECRET
+          : 'boom',
+      },
+    }
+  );
+
+  let { result } = await data.json();
+
+  return {
+    products: result,
+  };
+}
+
+export default async function MyProducts() {
+  let { products } = await getProducts();
+  console.log('products=', products);
+
   return (
     <div className="min-h-screen">
       <main className="p-10">

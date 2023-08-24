@@ -19,9 +19,6 @@ function NavbarMenu() {
           <Link href="/products">All products</Link>
         </li>
       )}
-      <li>
-        <a>Freebies</a>
-      </li>
       <hr className="my-1" />
       {status === 'authenticated' && session.user ? (
         <li className="md:hidden">
