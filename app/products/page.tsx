@@ -31,7 +31,7 @@ export default async function Products() {
                 return (
                   <ProductItem key={key}>
                     <Link href={p.staticPage}>
-                      <TemplateImage url={p.image} />
+                      <TemplateImage url={`/images/templates/${p.id}.png`} />
                       <div className="flex flex-row justify-between items-center">
                         <span className="text-lg font-semibold">{p.name}</span>
                         <span className="btn btn-neutral btn-xs">Download</span>
@@ -49,21 +49,21 @@ export default async function Products() {
           <section className="p-3">
             <h1 className="text-2xl font-semibold">Products</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {unpurchasedPdts.map((product: Product, key: number) => {
+              {unpurchasedPdts.map((p: Product, key: number) => {
                 return (
                   <ProductItem key={key}>
-                    <Link href={product.staticPage}>
-                      <TemplateImage url={product.image} />
+                    <Link href={p.staticPage}>
+                      <TemplateImage url={`/images/templates/${p.id}.png`} />
                       <div className="flex flex-row justify-between items-center">
                         <span className="text-lg font-semibold">
-                          {product.name}
+                          {p.name}
                         </span>
                         <span className="badge badge-secondary">
-                          $ {product.price}
+                          $ {p.price}
                         </span>
                       </div>
                     </Link>
-                    <span>{product.description}</span>
+                    <span>{p.description}</span>
                   </ProductItem>
                 );
               })}

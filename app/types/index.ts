@@ -3,7 +3,6 @@ export type Product = {
   demoUrl: string;
   description: string;
   name: string;
-  image: string;
   sales: number;
   staticPage: string;
   version: string;

@@ -10,15 +10,9 @@ function NavbarMenu() {
   const { data: session, status } = useSession();
   return (
     <>
-      {status === 'authenticated' && session.user ? (
-        <li>
-          <Link href="/mine">My products</Link>
-        </li>
-      ) : (
-        <li>
-          <Link href="/products">All products</Link>
-        </li>
-      )}
+      <li>
+        <Link href="/products">Products</Link>
+      </li>
       <hr className="my-1" />
       {status === 'authenticated' && session.user ? (
         <li className="md:hidden">
