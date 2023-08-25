@@ -17,7 +17,8 @@ function TemplateImage({ url }: { url: string }) {
 }
 
 export default async function Products() {
-  let { products = [], purchases = {} } = await getAllProducts();
+  let { products = [], purchases = {}, newUser } = await getAllProducts();
+  console.log('newUser=', newUser);
   let purchasedPdts = products.filter((p: Product) => purchases[p.id] === true);
   let unpurchasedPdts = products.filter((p: Product) => !purchases[p.id]);
   return (
@@ -59,7 +60,7 @@ export default async function Products() {
                           {p.name}
                         </span>
                         <span className="badge badge-secondary">
-                          $ {p.price}
+                          $ {p.price.toFixed(2)}
                         </span>
                       </div>
                     </Link>

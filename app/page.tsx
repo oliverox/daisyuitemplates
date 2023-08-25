@@ -1,29 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { useSession } from 'next-auth/react';
 
-declare global {
-  interface Window {
-    cta_modal: { showModal: () => {} };
-  }
-}
+// declare global {
+//   interface Window {
+//     cta_modal: { showModal: () => {} };
+//   }
+// }
 
 export default function Home() {
-  const { data: session, status } = useSession();
-
-  const handleCtaClick = () => {
-    window.cta_modal.showModal();
-  };
+  // const handleCtaClick = () => {
+  //   window.cta_modal.showModal();
+  // };
   return (
     <div className="min-h-screen">
       <main className="flex flex-col items-center gap-10 p-10 sm:p-24">
-        {status === 'authenticated' && session.user ? (
-          <p><span className="badge badge-neutral">{session.user.email}</span></p>
-        ) : (
-          <p><span className="badge badge-neutral">Anonymous user</span></p>
-        )}
-
         <div className="text-center">
           <span className="text-5xl leading-[1.2] font-semibold">
             High Quality Templates
@@ -44,15 +35,11 @@ export default function Home() {
           </p>
         </div>
         <div>
-          <Link
-            href="/products"
-            className="btn btn-secondary leading-[1.2]"
-            onClick={handleCtaClick}
-          >
-            Show Products
+          <Link href="/products" className="btn btn-secondary leading-[1.2]">
+            View Products
           </Link>
         </div>
-        <dialog id="cta_modal" className="modal">
+        {/* <dialog id="cta_modal" className="modal">
           <form method="dialog" className="modal-box">
             <h3 className="font-bold text-lg">
               DaisyUI Templates is coming soon...
@@ -62,7 +49,7 @@ export default function Home() {
               <button className="btn">Close</button>
             </div>
           </form>
-        </dialog>
+        </dialog> */}
       </main>
       <div
         className="w-full inline-flex flex-nowrap overflow-hidden mb-8
