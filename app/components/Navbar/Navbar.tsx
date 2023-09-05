@@ -95,10 +95,10 @@ export default function Navbar() {
             </svg>
           </Link>
         </div>
-        <Link href="/" className="text-xl hidden sm:block font-mono font-bold">
+        <Link href="/" className="text-xl hidden sm:block text-accent font-semibold">
           <span>DaisyUI Templates</span>
         </Link>
-        <Link href="/" className="text-2xl sm:hidden font-mono font-bold">
+        <Link href="/" className="text-2xl sm:hidden text-accent font-semibold">
           DT
         </Link>
       </div>
