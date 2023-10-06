@@ -1,6 +1,9 @@
 import Link from 'next/link';
 
-export default function Product(props: { params: { name: string } }) {
+export default function ProductLayout(props: { params: { 
+  name: string,
+  price: number
+} }) {
   return (
     <div className="min-h-screen">
       <main className="flex flex-col gap-4 p-10">
@@ -10,7 +13,7 @@ export default function Product(props: { params: { name: string } }) {
         <div className="flex flex-col lg:flex-row gap-5">
           <div className="min-w-[300px] min-h-[500px] w-full max-w-7xl h-full bg-white rounded-md drop-shadow-md">
             <div className="flex flex-row gap-8 items-center justify-between">
-              <span className="btn btn-secondary btn-xl">Buy for $25</span>
+              <span className="btn btn-secondary btn-xl">Buy for $${props.params.price}</span>
               <Link href="/" className="btn btn-ghost flex items-center gap-1">
                 <span>Demo</span>
                 <svg

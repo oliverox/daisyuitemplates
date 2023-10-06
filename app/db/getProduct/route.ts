@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import firebaseApp from '../../lib/firebase/config';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import type { Product } from '../../types';
+import type { Product } from '../../lib/types';
 
 const db = getFirestore(firebaseApp);
 
@@ -11,7 +11,7 @@ const db = getFirestore(firebaseApp);
 
 export async function POST(request: NextRequest) {
   let secret = request.headers.get('app-secret');
-  let { productId } = await request.json();
+  let { id } = await request.json();
   if (secret !== process.env.NEXTAUTH_SECRET) {
     return NextResponse.json(
       {
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       }
     );
   }
-  if (!productId || productId.length === 0) {
+  if (!id || id.length === 0) {
     return NextResponse.json(
       {
         message: 'Invalid product.',
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
   }
   let result = {};
   try {
-    const productSnap = await getDoc(doc(db, 'products', productId));
+    const productSnap = await getDoc(doc(db, 'products', id));
     if (productSnap.exists()) {
       result = productSnap.data() as Product;
     } else {
@@ -51,5 +51,5 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  return NextResponse.json({ result });
+  return NextResponse.json({ ...result });
 }
