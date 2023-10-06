@@ -7,6 +7,7 @@ export type Product = {
   staticPage: string;
   version: string;
   price: number;
+  mdx: string;
   lastUpdated: Date;
 };
 

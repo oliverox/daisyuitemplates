@@ -7,7 +7,7 @@ import {
   query,
   where,
 } from 'firebase/firestore';
-import type { Product } from '../../types';
+import type { Product } from '../../lib/types';
 
 const db = getFirestore(firebaseApp);
 

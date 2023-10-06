@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Product } from '../types';
+import { Product } from '../lib/types';
 import { getAllProducts } from '../utils/getAllProducts';
 
 function ProductItem(props: { children: ReactNode }) {
@@ -19,6 +19,7 @@ function TemplateImage({ url }: { url: string }) {
 export default async function Products() {
   let { products = [], purchases = {}, newUser } = await getAllProducts();
   console.log('newUser=', newUser);
+  console.log('products=', products);
   let purchasedPdts = products.filter((p: Product) => purchases[p.id] === true);
   let unpurchasedPdts = products.filter((p: Product) => !purchases[p.id]);
   return (
@@ -31,7 +32,7 @@ export default async function Products() {
               {purchasedPdts.map((p: Product, key: number) => {
                 return (
                   <ProductItem key={key}>
-                    <Link href={p.staticPage}>
+                    <Link href={`/product/${p.id}`}>
                       <TemplateImage url={`/images/templates/${p.id}.png`} />
                       <div className="flex flex-row justify-between items-center">
                         <span className="text-lg font-semibold">{p.name}</span>
@@ -53,7 +54,7 @@ export default async function Products() {
               {unpurchasedPdts.map((p: Product, key: number) => {
                 return (
                   <ProductItem key={key}>
-                    <Link href={p.staticPage}>
+                    <Link href={`/product/${p.id}`}>
                       <TemplateImage url={`/images/templates/${p.id}.png`} />
                       <div className="flex flex-row justify-between items-center">
                         <span className="text-lg font-semibold">
